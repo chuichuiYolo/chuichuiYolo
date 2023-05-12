@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>🍊🍊🍊🥛</title>
+  <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="icon" href="#" />
+    <link rel="stylesheet" href="jingwu.css" />
+    <style>
+        *, body{
+            margin: 0;
+            
+
+        }
+        #vase {
+            width: 100px;
+            height: 600px;
+            position: absolute;
+            top: 700px;
+            left: 600px;
+            color: rgb(89, 221, 77);
+            /* background-color: rgb(89, 221, 77); */
+            z-index: -2;
+        }
+        #ball{
+            width: 250px;
+            height: 200px;
+            border-radius: 50%;
+            top:400px;
+            left:60px; 
+            background-color: rgb(89, 221, 77);
+            z-index: -2;
+        }
+        #bottom {
+            width:150px;
+            height:100px;
+            position: absolute;
+            top: 70px;
+            left: 8px;
+            border-radius: 5%;
+            border-bottom: 100px solid rgb(89, 221, 77);
+            border-left: 45px solid transparent;
+            border-right: 45px solid transparent;
+            /* background-color: rgb(89, 221, 77); */
+            z-index: -2;
+        }
+        #top{
+            width:70px;
+            height: 90px;
+            position: absolute;
+            top: -300px;
+            left:10px;
+            /* background-color: rgb(89, 221, 77); */
+            border-left: 80px solid transparent;
+            border-right: 80px solid transparent;
+            border-top: 400px solid rgb(89, 221, 77);
+        }
+        #stick1{
+            width:30px;
+            height: 400px;
+            position: absolute;
+            top: -650px;
+            left:159px;
+            background-color: black;
+            transform: rotate(7deg);
+        }
+        #stick2{
+            width:30px;
+            height: 400px;
+            position: absolute;
+            top: -650px;
+            left:150px;
+            background-color: black;
+            /* transform: rotate(7deg); */
+        }
+        #stick3{
+            width:30px;
+            height: 400px;
+            position: absolute;
+            top: -650px;
+            left:88px;
+            background-color: black;
+            transform: rotate(-2deg);
+        }
+        #stick4{
+            width:30px;
+            height: 400px;
+            position: absolute;
+            top: -650px;
+            left:60px;
+            background-color: black;
+            transform: rotate(-7deg);
+        }
+        #oranges {
+            width: 500px;
+            height: 400px;
+            position: absolute;
+            bottom: -300px;
+            left: 400px;
+            /* background-color: rgb(89, 221, 77); */
+
+        }
+        #orange1 {
+            width:230px;
+            height: 180px;
+            border-radius: 50%;
+            position: absolute;
+            top: 30px;
+            left:100px; 
+            background-color: orange;
+            z-index: -4;
+        }
+        #orange5 {
+            width:230px;
+            height: 180px;
+            border-radius: 50%;
+            position: absolute;
+            top: -100px;
+            left:100px; 
+            background-color: rgb(255, 153, 0);
+            z-index: -3;
+        }
+        #orange2 {
+            width:40%;
+            height: 40%;
+            border-radius: 50%;
+            position: absolute;
+            top: 200px;
+            left:0; 
+            background-color: rgb(255, 150, 3);
+            z-index: o;
+        }
+        #orange3 {
+            width:45%;
+            height: 45%;
+            border-radius: 50%;
+            position: absolute;
+            top: -20px;
+            left:-100px; 
+            background-color: rgb(226, 104, 4);
+            z-index: -5;
+        }
+        #orange4 {
+            width:50%;
+            height: 50%;
+            border-radius: 50%;
+            position: absolute;
+            top: 180px;
+            left:0; 
+            background-color: rgb(255, 150, 3);
+            z-index: o;
+        }
+        #glass {
+            width: 350px;
+            height: 400px;
+            position: absolute;
+            bottom: -340px;
+            left: 500px;
+            /* background-color: rgba(0, 255, 238, 0.526); */
+            z-index: 2;
+
+        }
+        #body1 {
+            width: 130px;
+            height: 400px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(0, 255, 238, 0.714);
+            z-index: 2;
+            transform: skewY(15deg)
+
+        }
+        #body2 {
+            width: 150px;
+            height: 400px;
+            position: absolute;
+            bottom: -18px;
+            left: 130px;
+            background-color: rgba(0, 255, 238, 0.354);
+            z-index: 2;
+            /* transform: skewY(-15deg) */
+
+        }
+        #body3 {
+            width: 130px;
+            height: 400px;
+            position: absolute;
+            bottom: 0;
+            left: 280px;
+            background-color: rgba(0, 255, 238, 0.891);
+            z-index: 2;
+            transform: skewY(-15deg)
+
+        }
+        #neck {
+            width: 90px;
+            height: 60px;
+            position: absolute;
+            bottom: 382px;
+            left: 130px;
+            /* background-color: rgba(0, 255, 238, 0.526); */
+            z-index: 2;
+            /* transform: skewY(-15deg) */
+            border-bottom: 100px solid rgba(0, 255, 238, 0.526);
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+           
+        } 
+        #mouth {
+            width: 90px;
+            height: 60px;
+            position: absolute;
+            bottom: 430px;
+            left: 130px;
+            /* background-color: rgba(0, 255, 238, 0.526); */
+            z-index: 2;
+            /* transform: skewY(-15deg) */
+            border-top: 100px solid rgba(0, 255, 238, 0.893);
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+        }
+        #mouth1 {
+            width: 75px;
+            height: 60px;
+            position: absolute;
+            bottom: 398px;
+            left: 257px;
+            /* background-color: rgba(0, 255, 238, 0.526); */
+            z-index: 2;
+            transform: skewY(-15deg);
+            border-bottom: 100px solid rgba(0, 255, 238, 0.526);
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            transform: rotate(-15deg);
+           
+        } 
+        #mouth2 {
+            width: 75px;
+            height: 60px;
+            position: absolute;
+            bottom: 398px;
+            left: 17px;
+            /* background-color: rgba(0, 255, 238, 0.526); */
+            z-index: 2;
+            transform: skewY(-15deg);
+
+            border-bottom: 100px solid rgba(0, 255, 238, 0.526);
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            transform: rotate(15deg);
+           
+        } 
+
+
+
+
+
+
+
+    </style>
+  </head>
+
+  <body>
+    <a href=" ">back</a >
+    
+    <div id="glass">
+        <div id="mouth"></div>
+        <div id="mouth1"></div>
+        <div id="mouth2"></div>
+        <div id="neck"></div>
+        <div id="body1"></div>
+        <div id="body2"></div>
+        <div id="body3"></div>
+
+    </div>
+    <div id="vase">
+        <div id="stick1"></div> 
+        <div id="stick2"></div> 
+        <div id="stick3"></div> 
+        <div id="stick4"></div> 
+        <div id="top"></div>
+        <div id="ball"></div>
+        <div id="bottom"></div>
+    </div>
+    <div id="oranges">
+        <div id="orange1"></div>
+        <div id="orange2"></div>
+        <div id="orange3"></div>
+        <div id="orange4"></div>
+        <div id="orange5"></div>
+
+    </div>
+
+    
+    </body>
+    </html>

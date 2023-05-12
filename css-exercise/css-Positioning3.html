@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+	<title>Hidden info panel</title>
+
+  <style>
+    /* || Checkbox hack to control information box display */
+
+    label[for="toggle"] {
+      font-size: 3rem;
+      position: absolute;
+      top: 4px;
+      right: 5px;
+      z-index: 1;
+      cursor: pointer;
+    }
+
+    input[type="checkbox"] {
+       position: absolute;
+       top: -100px;
+    }
+
+    /* information box styling */
+
+    aside {
+      background-color:#e50a4f;
+      color: #ffffff;
+
+      width: 340px;
+      height: 100%;
+      padding: 0 20px;
+
+      position: fixed;
+      top: 0;
+      right: -370px;
+
+      transition: 0.6s all;
+    }
+
+    /* Second part of the checkbox hack — the checked state */
+
+    input[type=checkbox]:checked + aside {
+      right: 0px;
+    }
+  </style>
+
+  </head>
+<body>
+
+
+  <label for="toggle">😍💗</label>
+  <input type="checkbox" id="toggle">
+  <aside>
+    <h2>Invitation Card</h2>
+
+    <p>Inquiries for collaboration from REVERSIBLE:</p>
+
+    <ol>
+      <li>Greetings from REVERSIBLE! We are a new fashion platform where people can buy, sell and share fashion all in one place. We launched the Rick Owens-themed OOTD event in our App on April 23rd and will last for a month.You will have a chance to win CASH rewards by sharing any form of content related to the topic.
+ 
+        We noticed that you have previously shared many great content about Rick Owens or dark fashion on TikTok or Instagram. Therefore, we would like to invite you to join our event. We believe that your expertise and influence will make our event even more successful. If you would like to join our event or share this event on your social media.
+        
+       
+        See the poster for specific event details !
+        </li>
+    
+      <li> Learn more about REVERSIBLE here <a href="https://www.reversible.com">https://www.reversible.com</a>.</li>
+     
+    </ol>
+
+  </aside>
+</body>
+</html>
+<a href="index.html">back</a >

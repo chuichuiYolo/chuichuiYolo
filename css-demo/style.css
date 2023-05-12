@@ -1,0 +1,28 @@
+html{
+    font-size: 24pt;
+}
+
+body{
+    /* background-color: aquamarine; */
+    width: 800px;
+    font-size: 24pt;
+}
+
+article{
+    font-size: 2em;
+}
+h1{
+    font-size: 4em;
+
+}
+
+p{
+    /* color: rgba(255, 0, 0, 0.5); */
+    width: 50%;
+    background-color: pink;
+    font-size: 2em;
+}
+
+a{
+    color: inherit;
+}

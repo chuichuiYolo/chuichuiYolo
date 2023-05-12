@@ -1,0 +1,53 @@
+html{
+    font-size: 22pt;
+}
+
+body {
+    background-color: #fdb095;
+    width: 800px;
+    font-size: 22pt;
+}
+
+article{
+    font-size: 2em;
+}
+h1{
+    font-size: 2rem;
+    color: #fefdff;
+}
+
+h2{ font-size: 2rem;
+    color:#ffffff}
+
+h3{ font-size: 2rem;
+    color:#ffffff}
+
+
+
+p{
+    color: rgb(255, 2, 221,0.7);
+    width: 100%;
+    font-size: 0.5rem;
+
+}
+
+a{
+    color: #ff35dd;
+    font-size: 0.7rem;
+}
+
+.myclass{color: rgb(8, 16, 239);
+    font-size: 0.5rem
+}
+.green{color: blueviolet;}
+
+#first{
+    font-weight: bold;
+}
+
+body article p {
+ color: yellow;
+}
+p:hover{
+    color: #ff35dd;
+}

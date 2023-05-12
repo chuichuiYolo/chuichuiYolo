@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Fixed tabbed info box</title>
+  <style>
+
+  /* General setup */
+
+  html {
+    font-family: sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+  }
+
+  /* info-box setup */
+
+  .info-box {
+    width: 452px;
+    height: 400px;
+    margin: 0 auto;
+    position: fixed;
+    top: 0;
+  }
+
+  /* styling info-box list */
+
+  .info-box ul {
+    border: 1px solid #662C37;
+    overflow: hidden;
+    height: 50px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .info-box li {
+    float: left;
+    list-style-type: none;
+    width: 150px;
+  }
+
+  .info-box li a {
+    display: inline-block;
+    text-decoration: none;
+    width: 100%;
+    line-height: 3;
+    background: white;
+    color: #662C37;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .info-box li a:focus, li a:hover {
+    background-color: #c58a93;
+    color: white;
+  }
+
+  .info-box li a.active {
+    background-color:#E2BABC;
+    color: white;
+  }
+
+  /* styling info-box tabs */
+
+  .info-box .panels {
+    clear: both;
+    position: relative;
+    height: 352px;
+  }
+
+  .info-box article {
+    background-color: #A1656D;
+    color: white;
+    position: absolute;
+    padding: 10px 20px;
+    height: 352px;
+    top: 0;
+    left: 0;
+  }
+
+  .info-box .active-panel {
+    z-index: 1;
+  }
+
+  /* Styling our fake content */
+
+  .fake-content {
+    background-color:#c58a93;
+    color: white;
+    padding: 10px;
+    height: 2000px;
+    margin-left: 470px;
+  }
+</style>
+  </head>
+<body>
+
+<section class="fake-content">
+  <h1>Main Activities</h1>
+  <p>As a starting point, the government established 
+    a child friendliness map through an extensive 
+    environmental analysis, viewed from the perspective 
+    of children and youth. This formed the basis for the 
+    choice of a number of priority themes that were 
+    explored in a perception survey of children and 
+    young people. The process delivered challenges 
+    and solutions leading to a local strategy on child 
+    friendliness. 
+    The Youth Ghent programme tries on a continuous 
+    basis to question children and youth on all subjects 
+    concerning their daily lives. The content of this 
+    collected data is fed back and further developed 
+    by young people through talks at various schools 
+    and other organisations. This note was also shared 
+    with the colleges and was inspirational in terms of 
+    the layout of the administrative and later the multiannual plan.
+    The Youth Council has been vital in collecting 
+    pertinent information regarding areas where 
+    interventions need to take place— spatial analysis, 
+    social challenges, equipment required to carry out 
+    the research— and then take action on the ground. 
+    The council also cooperated with the city-wide 
+    process for preparation of the strategic plan, in order 
+    to develop and draft the multi-annual plan.
+    Cooperation with Hogent: Children in Urban Rooms 
+    (KIDS). This is a multidisciplinary applied research 
+    around child-friendly urban planning in collaboration 
+    with the city of Ghent. The project combines 
+    design research in four pilot neighbourhoods in 
+    Ghent with policy-oriented research which seeks 
+    to include a place for children as co-investigators. 
+    A learning network with representatives from the 
+    various departments and cabinets is intended to be 
+    established as part of this project.</p>
+    <p>Essen is the ninth largest city in Germany. However, 
+        conforming to the recent trend of negative population 
+        growth in Germany, statistics show that only one out 
+        of seven households in Essen has children. The city 
+        has approximately 108,000 children under the age 
+        of 18 years. Out of these, 22.6% live with a single 
+        parent and 10.6% children belong to an ethnic 
+        minority group. 
+        The town council of Essen initiated the ‘Essen—City 
+        for Children’ project in 1988. Cross-sectoral inputs 
+        were sought while defining the objectives and multidisciplinary approach for an inclusive development 
+        plan for the children of Essen. The Action Programme 
+        for the project was launched in the year 1990. The 
+        main focus of the programme was to develop a 
+        manual to support initiatives of parents, develop 
+        guidelines to influence the design and organisation 
+        of open spaces and playgrounds, and to initiate a 
+        child-friendly traffic network. 
+        In 1994, information was drawn from various 
+        disciplines on the situation of children and youth in 
+        Essen. The outcome of this information collection 
+        was the publication of the document ‘The State of 
+        the Children in Essen’, which gave directions for 
+        future policy development. In 1998, on account of 
+        its unconventional and innovative way of tackling the 
+        challenges of modern cities, the city of Essen was 
+        invited by the Bertelsmann Foundation to collaborate 
+        in the ‘Cities of Tomorrow’ network, an international 
+        network comprising municipalities from around the 
+        world that have promoted or implemented child– 
+        friendly policies.</p>
+        <p>The goal of the Essen—City for Children project is 
+            to create conditions that would enable the children 
+            of Essen to develop as healthy individuals who are 
+            comfortable in their urban environment. The project 
+            has adopted a cross-sectoral and multidisciplinary 
+            approach, having many strategic partnerships 
+            consisting of representatives from all sections of 
+            the city that are involved with children and youth in 
+            Essen.
+            The four important stakeholders of the project 
+            have a clear demarcation of roles and include the 
+            Essen Town Council that initiated the project and 
+            is responsible for directing the development of the 
+            programme. The Children’s Office established in 
+            1990 within the local youth and social affairs portfolio 
+            to promote and develop governmental policies 
+            for children, conducts regular surveys, forums 
+            and consultations to increase child and family 
+            participation. The Children’s Office acts as the ‘goto’ centre for all issues related to children in general 
+            and also those related specifically to the project. It 
+            promotes open spaces, child–friendly traffic zones 
+            etc.
+            The action committee of Essen—City for Children 
+            consists of all stakeholders who are associated with 
+            children and youth in Essen. The committee works 
+            together to create a healthy and right environment for 
+            children to develop as free spirited citizens. The work 
+            of the committee is coordinated by the Children’s 
+            Office which can streamline recommendations for 
+            the policy makers.
+            In an attempt to promote good parenting, Essen has 
+            established a Family Point that provides information 
+            on parenting to parents and also children. It also 
+            acts as a feedback centre where parents can give 
+            their opinions on how to make Essen more children 
+            friendly. 
+            Main Activities
+            The Essen—City for Children project aims at 
+            optimising the services available to children and 
+            parents for the intellectual, cultural and physical 
+            development of children. It promotes a culture of 
+            ongoing dialogue and learning between the city 
+            council, administration, non-municipal partners, 
+            children and parents.
+            In 1989, an attempt was made to transform the public 
+            playgrounds into ecological play spaces. The Office</p>
+</section>
+
+<section class="info-box">
+  <ul>
+    <li><a href="#" class="active">Tab 1</a></li>
+    <li><a href="#">Tab 2</a></li>
+    <li><a href="#">Tab 3</a></li>
+  </ul>
+  <div class="panels">
+    <article class="active-panel">
+      <h2>Key Features</h2>
+
+      <p>One of the main tasks of the Youth Ambassadors is to 
+        bring together different sub-cultures of the city to the 
+        Culture Factory at the Hall of Fame. The city provides 
+        a building to the youth to realise their dreams and 
+        encourages their ideas through financial support. 
+        Under the initiative, children can compose music, 
+        dance, and organise music festivals etc.</p> </article>
+    <article>
+      <h2>Evaluation</h2>
+
+      <p>The well-being of children and youth and the 
+        implementation of the youth policy is regularly 
+        monitored. Through the community evaluations, 
+        student surveys, and an inspection team of young 
+        people the child friendliness of the city is measured 
+        and assessed on how it improves the lives of children, 
+        youth and parents. At the policy level, evaluations 
+        of (pilot) programmes are undertaken and used to 
+        improve new projects.</p> </article>
+    <article>
+      <h2>Future Challenges</h2>
+
+      <p>One of the key concerns was to ensure that 
+        bureaucratic processes are simple and faster so 
+        as to keep children and youth motivated. In order 
+        to ensure that the improvements envisaged under 
+        the project do not slow down due to bureaucratic 
+        processes, streamlined communication and 
+        continuous monitoring is required between the 
+        municipality and young people.</p>
+      <ol>
+        <li>dui neque eleifend lorem, a auctor libero turpis at sem.</li>
+        <li>Aliquam ut porttitor urna.</li>
+        <li>Nulla facilisi</li>
+      </ol>
+    </article>
+  </div>
+</section>
+
+<script>
+
+var tabs = document.querySelectorAll('.info-box li a');
+var panels = document.querySelectorAll('.info-box article');
+
+for(i = 0; i < tabs.length; i++) {
+  var tab = tabs[i];
+  setTabHandler(tab, i);
+}
+
+function setTabHandler(tab, tabPos) {
+  tab.onclick = function() {
+    for(i = 0; i < tabs.length; i++) {
+      tabs[i].className = '';
+    }
+
+    tab.className = 'active';
+
+    for(i = 0; i < panels.length; i++) {
+      panels[i].className = '';
+    }
+
+    panels[tabPos].className = 'active-panel';
+  }
+}
+
+</script>
+
+</body>
+</html>
+<a href="index.html">back</a >
