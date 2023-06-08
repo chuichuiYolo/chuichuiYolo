@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>cc</title>
+</head>
+
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+  }
+
+  body {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .content-left {
+    display: flex;
+    flex: 1.1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    left: 2%;
+    /* background: red; */
+  }
+
+  .left-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex: 8;
+    width: 100%;
+  }
+
+  .snake {
+    flex: 3.5;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+  }
+
+  .snake-icon {
+    cursor: pointer;
+    width: 100%;
+    height: 90%;
+    background: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 8px solid black;
+    border-radius: 150px;
+    background-image: url('./images/snake-hover.png');
+    background-repeat: no-repeat;
+    background-size: 80% 90%;
+    background-position: center center;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .snake-icon:hover {
+    opacity: 0.8;
+    box-shadow: 0 20px 20px 0 rgba(0, 0, 0, .25);
+    transition: all .2s ease-in-out;
+  }
+
+  .cau-brief {
+    flex: 6.5;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cau {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    flex: 2;
+    padding: 20px 20px 10px 20px;
+  }
+
+  .cau-icon {
+    cursor: pointer;
+    background: white;
+    width: 75%;
+    border: 8px solid black;
+    border-radius: 100px;
+    display: flex;
+    /* flex: 4; */
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 20%;
+    transform: rotate(-10deg);
+  }
+
+  .cau-icon:hover {
+    box-shadow: 0 20px 20px 0 rgba(0, 0, 0, .25);
+    transition: all .2s ease-in-out;
+  }
+
+  .cau-icon>img {
+    width: 70%;
+  }
+
+  .brief {
+    display: flex;
+    flex: 6;
+    width: 100%;
+    padding: 0 20px 20px 20px;
+  }
+
+  .brief-icon {
+    cursor: pointer;
+    width: 100%;
+    height: 70%;
+    background: white;
+    border: 8px solid black;
+    border-radius: 100px;
+    margin-top: 20px;
+    transform: rotate(15deg);
+    position: relative;
+    top: 13%;
+    overflow: hidden;
+  }
+
+  .brief-icon:hover {
+    box-shadow: 0 20px 20px 0 rgba(0, 0, 0, .25);
+    transition: all .2s ease-in-out;
+  }
+
+  .left-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex: 2;
+    width: 100%;
+  }
+
+  .strip {
+    display: flex;
+    flex: 7;
+    height: 100%;
+    padding: 0 20px;
+  }
+
+  .strip-icon {
+    cursor: pointer;
+    width: 100%;
+    height: 80%;
+    background: #ece8b2;
+    border: 8px solid black;
+    border-radius: 100px;
+  }
+
+  .strip-icon:hover {
+    box-shadow: 0 20px 20px 0 rgba(0, 0, 0, .25);
+    transition: all .2s ease-in-out;
+  }
+
+  .coin {
+    display: flex;
+    height: 100%;
+    flex: 3;
+  }
+
+  .coin-icon {
+    cursor: pointer;
+    width: 100%;
+    height: 80%;
+    background: white;
+    border: 8px solid black;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .coin-icon:hover {
+    box-shadow: 0 20px 20px 0 rgba(0, 0, 0, .25);
+    transition: all .2s ease-in-out;
+  }
+
+  .coin-icon>img {
+    height: 95%;
+    width: 50%;
+  }
+
+  .content-right {
+    display: flex;
+    flex-direction: column;
+    flex: .9;
+  }
+
+  .right-top {
+    display: flex;
+    flex: 4.5;
+  }
+
+  .right-footer {
+    display: flex;
+    flex: 5.5;
+  }
+
+  .desk {
+    display: flex;
+    flex: 5;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .desk-icon {
+    cursor: pointer;
+    width: 65%;
+    height: 90%;
+    background: #C4BDB6;
+    border: 8px solid black;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .desk-icon:hover {
+    box-shadow: 0 20px 20px 0 rgba(0, 0, 0, .25);
+    transition: all .2s ease-in-out;
+  }
+
+  .desk-icon>img {
+    width: 90%;
+  }
+
+  .wireless-arris {
+    display: flex;
+    flex-direction: column;
+    flex: 5;
+  }
+
+  .wireless {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex: 5;
+  }
+
+  .wireless-icon {
+    cursor: pointer;
+    width: 80%;
+    height: 80%;
+    background: #C4BDB6;
+    border: 8px solid black;
+    background: #2C5B96;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .wireless-icon:hover {
+    box-shadow: 0 20px 20px 0 rgba(0, 0, 0, .25);
+    transition: all .2s ease-in-out;
+  }
+
+  .wireless-icon>img {
+    width: 60%;
+  }
+
+  .arris {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex: 5;
+  }
+
+  .arris-icon {
+    cursor: pointer;
+    background: #545884;
+    width: 80%;
+    height: 80%;
+    border: 8px solid black;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .arris-icon:hover {
+    box-shadow: 0 20px 20px 0 rgba(0, 0, 0, .25);
+    transition: all .2s ease-in-out;
+  }
+
+  .arris-icon>img {
+    width: 45%;
+  }
+
+  .Monsters {
+    display: flex;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .Monsters-icon {
+    cursor: pointer;
+    width: 83%;
+    height: 90%;
+    border: 8px solid black;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .Monsters-icon:hover {
+    box-shadow: 0 20px 20px 0 rgba(0, 0, 0, .25);
+    transition: all .2s ease-in-out;
+  }
+
+  .Monsters-icon>img {
+    width: 85%;
+  }
+
+  .carousel {
+    display: flex;
+    width: 83%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .carousel-icon {
+    border: 8px solid black;
+    border-radius: 100px;
+    width: 82%;
+    height: 90%;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .carousel-icon:hover {
+    box-shadow: 0 20px 20px 0 rgba(0, 0, 0, .25);
+    transition: all .2s ease-in-out;
+  }
+
+  .carousel img {
+    width: 100%;
+    height: 100%;
+    display: none;
+    position: absolute;
+  }
+
+  .close-back {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    position: relative;
+    top: 5%;
+    right: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 8px solid black;
+    background: white;
+    background-repeat: no-repeat;
+    background-size: 40px 40px;
+    background-position: center center;
+  }
+
+  .close-back:hover {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    position: relative;
+    top: 5%;
+    right: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border: 8px solid white; */
+    background: black;
+    background-repeat: no-repeat;
+    background-size: 40px 40px;
+    background-position: center center;
+  }
+
+  .close-overlay {
+    cursor: pointer;
+    width: 80px;
+    height: 80px;
+    background: url('./images/close.png');
+    background-repeat: no-repeat;
+    background-size: 40px 40px;
+    background-position: center center;
+  }
+
+  .close-overlay:hover {
+    cursor: pointer;
+    width: 80px;
+    height: 80px;
+    background: url('./images/close-hover.png');
+    background-repeat: no-repeat;
+    background-size: 40px 40px;
+    background-position: center center;
+  }
+
+  .coin-hover {
+    position: fixed;
+    top: 0;
+    right: 10%;
+    width: 50%;
+    cursor: pointer;
+  }
+</style>
+
+<body>
+  <div class="content">
+    <div class="content-left">
+      <div class="left-top">
+        <div class="snake">
+          <div class="snake-icon icon">
+          </div>
+        </div>
+        <div class="cau-brief">
+          <div class="cau">
+            <div class="cau-icon">
+              <img src="./images/IASO.png" alt="snake">
+            </div>
+          </div>
+          <div class="brief">
+            <div class="brief-icon">
+              <p style="margin:10% 5% 4% 5%;font-weight: bold;">作者建立了一个名叫 IASO 的虛构组织。</p>
+              <p style="margin:0 5%;font-weight: bold;line-height: 30px;">
+                IASO
+                是希腊神话中生命女神的名字，将脆弱生命的延长商品化，以贩卖商品的形式来展现各种脆弱的生命。生命的脆弱性是生物无法改变的弱点，人们内心对想要留存或延长脆弱生命带有期许。这世上的某些人为了留住生命，即使付出再大的代价也在所不惜。IASO
+                其实是人们对生命”期许”的寄托，通过特殊货币的交换，就可以获得延长生命的商品。倘若真的存在这样的组织，观者愿意花费多大的代价留住自己珍爱的生命？</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="left-footer">
+        <div class="strip">
+          <div class="strip-icon"></div>
+        </div>
+        <div class="coin">
+          <div class="coin-icon" id="coin-icon">
+            <img src="./images/coin-hover.png" alt="coin">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-right">
+      <div class="right-top">
+        <div class="carousel">
+          <div class="carousel-icon">
+            <img src="./images/de (1).jpg" alt="Image 1">
+            <img src="./images/de (2).jpg" alt="Image 2">
+            <img src="./images/de (3).jpg" alt="Image 3">
+            <img src="./images/de (4).jpg" alt="Image 4">
+            <img src="./images/de (5).jpg" alt="Image 5">
+          </div>
+        </div>
+
+        <div class="close-back">
+          <div onclick="closePop()" class="close-overlay"></div>
+        </div>
+
+      </div>
+      <div class="right-footer">
+        <div class="Monsters">
+          <div class="Monsters-icon">
+            <video style="width: 100%;height: 100%;object-fit: fill;border-radius: 90px;" loop autoplay
+              src="./video/5月30日.mp4"></video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <img class="coin-hover" style="display: none;" id="coin-hover" src="./images/coin-hover.png" alt="coin">
+</body>
+<script>
+  window.addEventListener('load', function () {
+    var carousel = document.querySelector('.carousel');
+    var images = carousel.querySelectorAll('img');
+    var currentIndex = 0;
+    var startX;
+    var threshold = 50; // 拖动阈值
+
+    // 显示初始图片
+    images[currentIndex].style.display = 'block';
+
+    // 点击切换下一张图片
+    carousel.addEventListener('click', function () {
+      images[currentIndex].style.display = 'none';
+      currentIndex = (currentIndex + 1) % images.length;
+      images[currentIndex].style.display = 'block';
+    });
+
+    // 鼠标拖动切换图片
+    carousel.addEventListener('mousedown', function (event) {
+      startX = event.clientX;
+      event.preventDefault();
+    });
+
+    carousel.addEventListener('mouseup', function (event) {
+      var diffX = event.clientX - startX;
+      if (diffX > threshold) {
+        // 向右拖动，切换到上一张图片
+        images[currentIndex].style.display = 'none';
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        images[currentIndex].style.display = 'block';
+      }
+    });
+  });
+
+  // 关闭遮罩
+  function closePop() {
+    parent.postMessage("close", "*");
+  }
+
+  // coin 显示
+  var button = document.getElementById("coin-icon");
+  var element = document.getElementById("coin-hover");
+
+  button.addEventListener("click", function () {
+    // 切换元素的显示状态
+    if (element.style.display == "none") {
+      element.style.display = "block";
+    } else {
+      element.style.display = "none";
+    }
+  });
+
+  // 绑定要显示/隐藏的元素点击事件处理函数
+  element.addEventListener("click", function () {
+    // 隐藏元素
+    element.style.display = "none";
+  });
+</script>
+
+</html>

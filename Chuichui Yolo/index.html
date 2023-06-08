@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>cc</title>
+</head>
+
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+  }
+
+  body {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .content-left {
+    display: flex;
+    flex: 1.1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    left: 2%;
+    /* background: red; */
+  }
+
+  .left-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex: 8;
+    width: 100%;
+  }
+
+  .snake {
+    flex: 3.5;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+  }
+
+  .snake-icon {
+    cursor: pointer;
+    width: 100%;
+    height: 90%;
+    background: #62A9CF;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 8px solid rgb(0, 0, 0);
+    border-radius: 150px;
+    background-image: url('./images/snake.png');
+    background-repeat: no-repeat;
+    background-size: 80% 90%;
+    background-position: center center;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .snake-icon:hover {
+    cursor: pointer;
+    width: 100%;
+    height: 90%;
+    background: #62A9CF;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 8px solid black;
+    border-radius: 150px;
+    background-image: url('./images/snake-hover.png');
+    background-repeat: no-repeat;
+    background-size: 80% 90%;
+    background-position: center center;
+    opacity: 0.8;
+    box-shadow: 0 20px 20px 0 rgba(0, 0, 0, .25);
+    transition: all .2s ease-in-out;
+  }
+
+  .cau-brief {
+    flex: 6.5;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cau {
+    width: 100%;
+    display: flex;
+    flex: 2;
+    padding: 20px 20px 10px 20px;
+  }
+
+  .cau-icon {
+    cursor: pointer;
+    background: #C04A2D;
+    width: 100%;
+    border: 8px solid black;
+    border-radius: 100px;
+    display: flex;
+    flex: 4;
+    background-image: url('./images/cau.png');
+    background-repeat: no-repeat;
+    background-size: 90% 90%;
+    background-position: center center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cau-icon:hover {
+    background-image: url('./images/cau-hover.png');
+    background-repeat: no-repeat;
+    background-size: 90% 90%;
+    background-position: center center;
+    box-shadow: 0 20px 20px 0 rgba(0, 0, 0, .25);
+    transition: all .2s ease-in-out;
+  }
+
+  /* .cau-icon>img {
+    width: 90%;
+  } */
+
+  .brief {
+    display: flex;
+    flex: 6;
+    width: 100%;
+    padding: 0 20px 20px 20px;
+  }
+
+  .brief-icon {
+    cursor: pointer;
+    width: 100%;
+    background: #CF7F3A;
+    border: 8px solid black;
+    border-radius: 100px;
+    margin-top: 20px;
+    background-image: url('./images/seal.png');
+    background-repeat: no-repeat;
+    background-size: 60% 80%;
+    background-position: center center;
+  }
+
+  .brief-icon:hover {
+    background-image: url('./images/seal-hover.png');
+    background-repeat: no-repeat;
+    background-size: 60% 80%;
+    background-position: center center;
+    box-shadow: 0 20px 20px 0 rgba(0, 0, 0, .25);
+    transition: all .2s ease-in-out;
+  }
+
+  .left-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex: 2;
+    width: 100%;
+  }
+
+  .strip {
+    display: flex;
+    flex: 7;
+    height: 100%;
+    padding: 0 20px;
+  }
+
+  .strip-icon {
+    cursor: pointer;
+    width: 100%;
+    height: 80%;
+    background: #E8DF5A;
+    border: 8px solid black;
+    border-radius: 100px;
+    background-image: url('./images/yolo.png');
+    background-repeat: no-repeat;
+    background-size: 50% 60%;
+    background-position: center center;
+  }
+
+  .strip-icon:hover {
+    background-image: url('./images/yolo-hover.png');
+    background-repeat: no-repeat;
+    background-size: 50% 60%;
+    background-position: center center;
+    box-shadow: 0 20px 20px 0 rgba(0, 0, 0, .25);
+    transition: all .2s ease-in-out;
+  }
+
+  .coin {
+    display: flex;
+    height: 100%;
+    flex: 3;
+  }
+
+  .coin-icon {
+    cursor: pointer;
+    width: 100%;
+    height: 80%;
+    background: #4D9981;
+    border: 8px solid black;
+    border-radius: 100px;
+    background-image: url('./images/coin.png');
+    background-repeat: no-repeat;
+    background-size: 60% 90%;
+    background-position: center center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .coin-icon:hover {
+    background-image: url('./images/coin-hover-1.png');
+    background-repeat: no-repeat;
+    background-size: 60% 90%;
+    background-position: center center;
+    box-shadow: 0 20px 20px 0 rgba(0, 0, 0, .25);
+    transition: all .2s ease-in-out;
+  }
+
+  .coin-icon>img {
+    height: 85%;
+  }
+
+  .content-right {
+    display: flex;
+    flex-direction: column;
+    flex: .9;
+  }
+
+  .right-top {
+    display: flex;
+    flex: 4.5;
+  }
+
+  .right-footer {
+    display: flex;
+    flex: 5.5;
+  }
+
+  .desk {
+    display: flex;
+    flex: 5;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .desk-icon {
+    cursor: pointer;
+    width: 65%;
+    height: 90%;
+    background: #9D864E;
+    border: 8px solid black;
+    border-radius: 100px;
+    background-image: url('./images/desk.png');
+    background-repeat: no-repeat;
+    background-size: 75% 90%;
+    background-position: center center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .desk-icon:hover {
+    background-image: url('./images/desk-hover.png');
+    background-repeat: no-repeat;
+    background-size: 75% 90%;
+    background-position: center center;
+    box-shadow: 0 20px 20px 0 rgba(0, 0, 0, .25);
+    transition: all .2s ease-in-out;
+  }
+
+  .desk-icon>img {
+    width: 90%;
+  }
+
+  .wireless-arris {
+    display: flex;
+    flex-direction: column;
+    flex: 5;
+  }
+
+  .wireless {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex: 5;
+  }
+
+  .wireless-icon {
+    cursor: pointer;
+    width: 80%;
+    height: 80%;
+    background: #C4BDB6;
+    border: 8px solid black;
+    background: #2C5B96;
+    border-radius: 100px;
+    background-image: url('./images/wireless.png');
+    background-repeat: no-repeat;
+    background-size: 50% 50%;
+    background-position: center center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .wireless-icon:hover {
+    background-image: url('./images/wireless-hover.png');
+    background-repeat: no-repeat;
+    background-size: 50% 50%;
+    background-position: center center;
+    box-shadow: 0 20px 20px 0 rgba(0, 0, 0, .25);
+    transition: all .2s ease-in-out;
+  }
+
+  .wireless-icon>img {
+    width: 60%;
+  }
+
+  .arris {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex: 5;
+  }
+
+  .arris-icon {
+    cursor: pointer;
+    background: #545884;
+    width: 80%;
+    height: 80%;
+    border: 8px solid black;
+    border-radius: 100px;
+    background-image: url('./images/arris.png');
+    background-repeat: no-repeat;
+    background-size: 50% 90%;
+    background-position: center center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .arris-icon:hover {
+    background-image: url('./images/arris-hover.png');
+    background-repeat: no-repeat;
+    background-size: 50% 90%;
+    background-position: center center;
+    box-shadow: 0 20px 20px 0 rgba(0, 0, 0, .25);
+    transition: all .2s ease-in-out;
+  }
+
+  .arris-icon>img {
+    width: 45%;
+  }
+
+  .Monsters {
+    display: flex;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .Monsters-icon {
+    cursor: pointer;
+    background: #DBA4B4;
+    width: 83%;
+    height: 90%;
+    border: 8px solid black;
+    border-radius: 100px;
+    background-image: url('./images/Monsters.png');
+    background-repeat: no-repeat;
+    background-size: 80% 90%;
+    background-position: center center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .Monsters-icon:hover {
+    background-image: url('./images/Monsters-hover.png');
+    background-repeat: no-repeat;
+    background-size: 80% 90%;
+    background-position: center center;
+    box-shadow: 0 20px 20px 0 rgba(0, 0, 0, .25);
+    transition: all .2s ease-in-out;
+  }
+
+  .Monsters-icon>img {
+    width: 85%;
+  }
+
+  #overlay{
+    height: 100vh;
+    width: 100vw;
+    display: none;
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  iframe {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    z-index: 3;
+  }
+</style>
+
+<body>
+  <div id="index" style="position: fixed;z-index:4 ;"></div>
+  <div class="content" >
+    <div class="content-left">
+      <div class="left-top">
+        <div class="snake">
+          <div onclick="openOverlay(null,'./iaso.html')" class="snake-icon icon">
+          </div>
+        </div>
+        <div class="cau-brief">
+          <div class="cau">
+            <div id="cau" onclick="openOverlay(this,'./cau.html')" class="cau-icon icon"></div>
+          </div>
+          <div class="brief">
+            <div id="brief" onclick="openOverlay(this,'./brief.html')" class="brief-icon icon"></div>
+          </div>
+        </div>
+      </div>
+      <div class="left-footer">
+        <div class="strip">
+          <div id="strip" onclick="openOverlay(this,'./strip.html')" class="strip-icon icon"></div>
+        </div>
+        <div class="coin">
+          <div id="icon" onclick="openOverlay(this,'./coin.html')" class="coin-icon icon"> </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-right">
+      <div class="right-top">
+        <div class="desk">
+          <div id="icon" onclick="openOverlay(this,'./desk.html')"  class="desk-icon icon"></div>
+        </div>
+        <div class="wireless-arris">
+          <div class="wireless">
+            <div id="icon" onclick="openOverlay(this,'./wireless.html')" class="wireless-icon icon"></div>
+          </div>
+          <div class="arris">
+            <div id="icon" onclick="openOverlay(this,'./arris.html')" class="arris-icon icon"></div>
+          </div>
+        </div>
+      </div>
+      <div class="right-footer">
+        <div class="Monsters">
+          <div id="icon" onclick="openOverlay(this,'./Monsters.html')" class="Monsters-icon icon"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 遮罩层部分 -->
+  <div id="overlay" class="overlay"></div>
+</body>
+
+<script>
+  var overlay = document.getElementById("overlay");
+  var overlayContent = document.getElementById("index");
+
+  var iframe = null; // 保存当前的 iframe 元素
+
+  function openOverlay(element, html) {
+    // 添加遮罩层
+    overlayContent.innerHTML = "";
+    iframe = document.createElement("iframe");
+    iframe.src = html;
+    overlayContent.appendChild(iframe);
+
+    if (element) {
+      element.style.zIndex = "2";
+      element.style.position = "relative";
+      setTimeout(() => {
+      // 传递 参数
+      rect = element.getBoundingClientRect();
+      iframe.contentWindow.postMessage(rect.bottom, '*');
+    }, 200);
+    }
+
+    overlay.style.display = "block";
+  }
+
+  function closeOverlay() {
+    overlay.style.display = "none";
+  }
+
+  // 监听关闭 遮罩层
+  window.addEventListener("message", receiveMessage, false);
+
+  function receiveMessage(event) {
+    if (event.data === "close") {
+      closeIframe();
+    }
+  }
+
+  function closeIframe() {
+    let icon = document.querySelectorAll('.icon');
+    icon.forEach(e => {
+      e.style.zIndex = 0;
+    })
+    overlay.style.display = "none";
+    iframe.parentNode.removeChild(iframe);
+    iframe = null;
+  }
+</script>
+
+</html>

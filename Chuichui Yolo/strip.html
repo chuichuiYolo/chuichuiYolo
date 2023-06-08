@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+</head>
+
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+  }
+
+  body {
+    display: flex;
+    justify-content: center;
+  }
+
+  #content {
+    width: 85vw;
+    background: #E5E0D5;
+    position: relative;
+    border-radius: 30px;
+    border: 8px solid black;
+    display: none;
+    padding: 4%;
+    height: 100%;
+  }
+
+  .close {
+    position: absolute;
+    top: -40px;
+    right: -3%;
+    width: 80px;
+    height: 80px;
+    background: white;
+    border: 8px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  .close:hover {
+    position: absolute;
+    top: -40px;
+    right: -3%;
+    width: 80px;
+    height: 80px;
+    background: black;
+    border: 8px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+
+  .close-overlay {
+    cursor: pointer;
+    width: 80px;
+    height: 80px;
+    background: url('./images/close.png');
+    background-repeat: no-repeat;
+    background-size: 40px 40px;
+    background-position: center center;
+  }
+
+  .close-overlay:hover {
+    cursor: pointer;
+    width: 80px;
+    height: 80px;
+    background: url('./images/close-hover.png');
+    background-repeat: no-repeat;
+    background-size: 40px 40px;
+    background-position: center center;
+  }
+
+  .close>img {
+    width: 50%;
+  }
+
+</style>
+
+<body>
+  <div id="content">
+    <div class="close" onclick="closePop()">
+      <div class="close-overlay"></div>
+      <!-- <img src="./images/close.png" /> -->
+    </div>
+  </div>
+</body>
+
+<script>
+  // 获取参数
+  window.addEventListener('message', function (event) {
+    const content = document.getElementById('content');
+    content.style.top = `${Number(event.data) + 20}px`
+    content.style.display = 'block';
+  });
+  // 关闭遮罩
+  function closePop() {
+    parent.postMessage("close", "*");
+  }
+
+
+  document.addEventListener("DOMContentLoaded", function() {
+      var carousel = document.querySelector('.carousel');
+      var images = carousel.querySelectorAll('img');
+      var currentIndex = 0;
+      var startX;
+      var threshold = 50; // Drag threshold
+      var indicatorsContainer = carousel.querySelector('.carousel-indicators');
+
+      // Display initial image
+      images[currentIndex].style.display = 'block';
+
+      // Create indicators
+      for (var i = 0; i < images.length; i++) {
+        var indicator = document.createElement('span');
+        indicator.classList.add('indicator');
+        if (i === currentIndex) {
+          indicator.classList.add('active');
+        }
+        indicatorsContainer.appendChild(indicator);
+      }
+
+      // Click event listener to switch to the next image
+      carousel.addEventListener('click', function () {
+        images[currentIndex].style.display = 'none';
+        indicatorsContainer.children[currentIndex].classList.remove('active');
+        currentIndex = (currentIndex + 1) % images.length;
+        images[currentIndex].style.display = 'block';
+        indicatorsContainer.children[currentIndex].classList.add('active');
+      });
+
+      // Mouse drag event listeners to switch images
+      carousel.addEventListener('mousedown', function (event) {
+        startX = event.clientX;
+        event.preventDefault();
+      });
+
+      carousel.addEventListener('mouseup', function (event) {
+        var diffX = event.clientX - startX;
+        if (diffX > threshold) {
+          // Dragged to the right, switch to the previous image
+          images[currentIndex].style.display = 'none';
+          indicatorsContainer.children[currentIndex].classList.remove('active');
+          currentIndex = (currentIndex - 1 + images.length) % images.length;
+          images[currentIndex].style.display = 'block';
+          indicatorsContainer.children[currentIndex].classList.add('active');
+        }
+      });
+    });
+</script>
+
+</html>

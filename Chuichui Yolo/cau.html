@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+</head>
+
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+  }
+
+  body {
+    display: flex;
+    justify-content: center;
+  }
+
+  #content {
+    width: 85vw;
+    background: #E5E0D5;
+    position: relative;
+    border-radius: 30px;
+    border: 8px solid black;
+    display: none;
+    padding: 4%;
+    height: 100%;
+  }
+
+  .close {
+    position: absolute;
+    top: -2%;
+    right: -2%;
+    width: 80px;
+    height: 80px;
+    background: white;
+    border: 8px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  .close:hover {
+    position: absolute;
+    top: -2%;
+    right: -2%;
+    width: 80px;
+    height: 80px;
+    background: black;
+    border: 8px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+
+  .close-overlay {
+    cursor: pointer;
+    width: 80px;
+    height: 80px;
+    background: url('./images/close.png');
+    background-repeat: no-repeat;
+    background-size: 40px 40px;
+    background-position: center center;
+  }
+
+  .close-overlay:hover {
+    cursor: pointer;
+    width: 80px;
+    height: 80px;
+    background: url('./images/close-hover.png');
+    background-repeat: no-repeat;
+    background-size: 40px 40px;
+    background-position: center center;
+  }
+
+  .close>img {
+    width: 50%;
+  }
+
+  .top {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .top-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 5;
+  }
+
+  .shield {
+    position: absolute;
+    right:0;
+  }
+
+  .left-title {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    flex: 1;
+  }
+
+  .left-content {
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+    line-height: 30px;
+    margin: 4% 0;
+  }
+
+  .left-logo {
+    display: flex;
+    justify-content: space-between;
+    flex: 7;
+  }
+
+  .left-logo > img{
+    width: 49%;
+  }
+
+  .top-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex: 5;
+    position: relative;
+    left: 5%;
+  }
+
+  .right-title{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    /* flex: 8; */
+    height: 90%;
+  }
+  .right-title > img{
+    width: 85%;
+    height: 100%;
+  }
+  .right-logo{
+    width: 95%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    height: 15%;
+    /* flex: 2; */
+    margin-top: 10px;
+  }
+  .right-logo > img{
+    width: 90%;
+  }
+  .flag{
+    display: flex;
+    flex-direction: row;
+    margin-top: 2%;
+  }
+  .flag-item{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex:5;
+  }
+  /* .flag-item-2{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex:5;
+  }
+  .flag-item-2 > img:last-child{
+    position: relative;
+    left: 7%;
+  } */
+  .flag-item>img{
+    width: 40%;
+    margin-right: 4%;
+  }
+  .flag-item>img:last-child{
+    margin-right: 0;
+  }
+
+  .carousel {
+      display: flex;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .carousel-icon {
+      width: 100%;
+      height: 90%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .carousel-icon:hover {
+      box-shadow: 0 20px 20px 0 rgba(0, 0, 0, .25);
+      transition: all .2s ease-in-out;
+    }
+
+    .carousel img {
+      width: 100%;
+      height: 100%;
+      display: none;
+      position: absolute;
+    }
+
+    .carousel-indicators {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+    }
+
+    .carousel-indicators span {
+      width: 10px;
+      height: 10px;
+      background-color: #bbb;
+      border-radius: 50%;
+      margin: 0 5px;
+      cursor: pointer;
+    }
+
+    .carousel-indicators span.active {
+      background-color: #333;
+    }
+</style>
+
+<body>
+  <div id="content">
+    <div class="top">
+      <div class="top-left">
+        <div class="left-title">
+          <img src="./images/cau/title.png">
+          <img class="shield" src="./images/cau/shield.png">
+        </div>
+        <div class="left-content">
+          <h4 style="margin: 10px 0;">安全小伙伴</h4>
+          <p>本课题项目旨在解决南龚社区儿童户外娱乐存在的安全问题。我们将 从空间的安全性和可持续性出发，帮助儿童对社区内娱乐的安全隐患 有更清晰的认知。我们会从“地面彩绘”这个设计出发，通过在儿童常在的娱乐区域地面上设计彩色地垫，用颜色标注出社区内的安全范 围和不安全范围，并将对应的颜色贴至对应的社区设施上，帮助儿童 辨认安全范围和不安全范围。同时，让儿童自己 DIY 贴身易佩戴的配饰和用品，在自己娱乐的时候放置在娱乐空间的周围或者自己身上，来告知和警示社内的其他人，让其他可能对儿童造成危险的因素发现有儿童在娱乐，及时避让。</p>
+        </div>
+        <div class="left-logo">
+          <img src="./images/cau/bag1.png">
+          <img src="./images/cau/bag2.png">
+        </div>
+      </div>
+      <div class="top-right">
+        <div class="right-title">
+          <img src="./images/cau/partner.png"/>
+        </div>
+        <div class="right-logo">
+          <img src="./images/cau/partner-1.png"/>
+        </div>
+      </div>
+    </div>
+    <div class="flag">
+      <div class="flag-item">
+        <img src="./images/cau/flag-1.png" />
+        <img src="./images/cau/flag-2.png" />
+        <img src="./images/cau/flag-3.png" />
+        <img src="./images/cau/flag-4.png" />
+      </div>
+      <div></div>
+    </div>
+    <div class="carousel">
+      <div class="carousel-icon">
+        <img src="./images/cau/IMG_1.jpg" alt="Image 1">
+        <img src="./images/cau/IMG_2.jpg" alt="Image 2">
+        <img src="./images/cau/IMG_3.jpg" alt="Image 3">
+      </div>
+      <div class="carousel-indicators"></div>
+    </div>
+    <div class="close" onclick="closePop()">
+      <div class="close-overlay"></div>
+      <!-- <img src="./images/close.png" /> -->
+    </div>
+  </div>
+</body>
+
+<script>
+  // 获取参数
+  window.addEventListener('message', function (event) {
+    const content = document.getElementById('content');
+    content.style.top = `${Number(event.data) + 20}px`
+    content.style.display = 'block';
+  });
+  // 关闭遮罩
+  function closePop() {
+    parent.postMessage("close", "*");
+  }
+
+
+  document.addEventListener("DOMContentLoaded", function() {
+      var carousel = document.querySelector('.carousel');
+      var images = carousel.querySelectorAll('img');
+      var currentIndex = 0;
+      var startX;
+      var threshold = 50; // Drag threshold
+      var indicatorsContainer = carousel.querySelector('.carousel-indicators');
+
+      // Display initial image
+      images[currentIndex].style.display = 'block';
+
+      // Create indicators
+      for (var i = 0; i < images.length; i++) {
+        var indicator = document.createElement('span');
+        indicator.classList.add('indicator');
+        if (i === currentIndex) {
+          indicator.classList.add('active');
+        }
+        indicatorsContainer.appendChild(indicator);
+      }
+
+      // Click event listener to switch to the next image
+      carousel.addEventListener('click', function () {
+        images[currentIndex].style.display = 'none';
+        indicatorsContainer.children[currentIndex].classList.remove('active');
+        currentIndex = (currentIndex + 1) % images.length;
+        images[currentIndex].style.display = 'block';
+        indicatorsContainer.children[currentIndex].classList.add('active');
+      });
+
+      // Mouse drag event listeners to switch images
+      carousel.addEventListener('mousedown', function (event) {
+        startX = event.clientX;
+        event.preventDefault();
+      });
+
+      carousel.addEventListener('mouseup', function (event) {
+        var diffX = event.clientX - startX;
+        if (diffX > threshold) {
+          // Dragged to the right, switch to the previous image
+          images[currentIndex].style.display = 'none';
+          indicatorsContainer.children[currentIndex].classList.remove('active');
+          currentIndex = (currentIndex - 1 + images.length) % images.length;
+          images[currentIndex].style.display = 'block';
+          indicatorsContainer.children[currentIndex].classList.add('active');
+        }
+      });
+    });
+</script>
+
+</html>
